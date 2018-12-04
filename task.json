@@ -1,0 +1,32 @@
+{
+    "id": "e3c59203-8498-4ec8-a3d1-a54cd547fb3b",
+    "name": "SocraticProgrammer_DotnetNugetTask",
+    "friendlyName": "Socratic Programmer - Dotnet Nuget Task",
+    "description": "Wrapper for working with Nuget via the Dotnet CLI.",
+    "helpMarkDown": "",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "author": "Socratic Programmer",
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 0
+    },
+    "instanceNameFormat": "Echo $(samplestring)",
+    "inputs": [
+        {
+            "name": "samplestring",
+            "type": "string",
+            "label": "Sample String",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "A sample string"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "index.js"
+        }
+    }
+}

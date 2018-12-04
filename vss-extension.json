@@ -1,0 +1,39 @@
+{
+    "manifestVersion": 1,
+    "id": "Socratic-Dotnet-Nuget-Build-Task",
+    "publisher": "SocraticProgrammer",
+    "version": "1.0.0",
+    "name": "Socratic Dotnet Nuget Build Task",
+    "description": "A task for working with nuget via the dotnet cli",
+    "public": false,
+    "categories": ["Azure Repos"],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "my-hub",
+            "type": "ms.vss-web.hub",
+            "targets": [
+                "ms.vss-code-web.code-hub-group"
+            ],
+            "properties": {
+                "name": "My Hub",
+                "uri": "my-hub.html"
+            }
+        }
+    ],
+    "files": [
+        {
+            "path": "my-hub.html",
+            "addressable": true
+        },
+        {
+            "path": "node_modules/vss-web-extension-sdk/lib",
+            "addressable": true,
+            "packagePath": "lib"
+        }
+    ]
+}
