@@ -1,39 +1,33 @@
 {
     "manifestVersion": 1,
-    "id": "Socratic-Dotnet-Nuget-Build-Task",
+    "id": "Dotnet-Nuget-Build-Task",
+    "name": "Dotnet Nuget",
+    "version": "0.0.2",
     "publisher": "SocraticProgrammer",
-    "version": "1.0.0",
-    "name": "Socratic Dotnet Nuget Build Task",
-    "description": "A task for working with nuget via the dotnet cli",
-    "public": false,
-    "categories": ["Azure Repos"],
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
-    ],
-    "contributions": [
-        {
-            "id": "my-hub",
-            "type": "ms.vss-web.hub",
-            "targets": [
-                "ms.vss-code-web.code-hub-group"
-            ],
-            "properties": {
-                "name": "My Hub",
-                "uri": "my-hub.html"
-            }
-        }
+    ],    
+    "description": "Task for working with Nuget via dotnet cli",
+    "categories": [
+        "Azure Pipelines"
     ],
     "files": [
         {
-            "path": "my-hub.html",
-            "addressable": true
-        },
+            "path": "buildAndReleaseTask"
+        }
+    ],
+    "contributions": [
         {
-            "path": "node_modules/vss-web-extension-sdk/lib",
-            "addressable": true,
-            "packagePath": "lib"
+            "id": "Socratic-Dotnet-Nuget-Build-Task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "buildAndReleaseTask"
+            }
         }
     ]
 }
