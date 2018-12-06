@@ -13,20 +13,44 @@
         "Minor": 1,
         "Patch": 0
     },
-    "instanceNameFormat": "Dotnet Nuget Pack",
+    "instanceNameFormat": "Dotnet Nuget Pack $(Project)",
     "inputs": [
         {
-            "name": "samplestring",
-            "type": "string",
-            "label": "Sample String",
+            "name": "project",
+            "type": "filePath",
+            "label": "Project Path",
             "defaultValue": "",
             "required": true,
-            "helpMarkDown": "A sample string"
+            "helpMarkDown": "Path to the desired project"
+        },
+        {
+            "name": "output",
+            "type": "filePath",
+            "label": "Output Path",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Path to the desired output directory"
+        },
+        {
+            "name": "version",
+            "type": "string",
+            "label": "Version",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Version for the nuget package"
+        },
+        {
+            "name": "branch",
+            "type": "string",
+            "label": "Current Branch",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Name of the source branch"
         }
     ],
     "execution": {
         "PowerShell3": {
-            "target": "$(currentDirectory)\\powershell.ps1",
+            "target": "$(currentDirectory)\\NugetPack.ps1",
             "workingDirectory": "$(currentDirectory)"
         }        
     }
