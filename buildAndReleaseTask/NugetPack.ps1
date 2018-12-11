@@ -9,9 +9,21 @@ $minorVersion = Get-VstsInput -Name 'minorVersion' -Require
 function getNewPatchVersion() {
     $projectName = Get-ChildItem $project
 
-    $output = nuget list $projectName.BaseName -ConfigFile .\NuGet.Config;
+    if ([System.IO.File]::Exists("C:\hostedtoolcache\windows\NuGet\4.1.0\x64\nuget.exe")) {
+        $output = C:\hostedtoolcache\windows\NuGet\4.1.0\x64\nuget.exe list $projectName.BaseName -ConfigFile .\NuGet.Config;
+    }
+    else {
+        $output = nuget.exe list $projectName.BaseName -ConfigFile .\NuGet.Config;
+    }
 
-    $([convert]::ToInt32($output.split('.')[-1])+1);
+    $patchStr = $output.split('.')[-1];
+
+    if ([string]::IsNullOrEmpty($patchStr)) {
+        0;
+    }
+    else {
+        $([convert]::ToInt32($patchStr)+1);
+    }
 }
 
 $args = @();
