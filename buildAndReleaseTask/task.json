@@ -38,15 +38,7 @@
             "defaultValue": "",
             "required": true,
             "helpMarkDown": "Version for the nuget package"
-        },
-        {
-            "name": "branch",
-            "type": "string",
-            "label": "Current Branch",
-            "defaultValue": "",
-            "required": true,
-            "helpMarkDown": "Name of the source branch"
-        }
+        }        
     ],
     "execution": {
         "PowerShell3": {

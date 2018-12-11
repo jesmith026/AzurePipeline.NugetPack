@@ -4,7 +4,6 @@ param()
 $project = Get-VstsInput -Name 'project' -Require;
 $outputDir = Get-VstsInput -Name 'output' -Require
 $version = Get-VstsInput -Name 'version' -Require
-$branch = Get-VstsInput -Name 'branch' -Require
 
 $args = @();
 
@@ -15,11 +14,12 @@ if (-Not [string]::IsNullOrEmpty($outputDir)) {
 }
 
 if (-Not [string]::IsNullOrEmpty($version)) {
-    $versionArg = "-p:PackageVersion=$version";
-
-    if ($branch -ne 'Dev') {
-        $versionArg += '-alpha';
+    if ($Env:BUILD_SOURCEBRANCHNAME -ne 'Dev') {
+        $versionArg = "-p:PackageVersion=$($Env:BUILD_BUILDNUMBER)";
     }
+    else {
+        $versionArg = "-p:PackageVersion=$version";
+    }    
 
     $args += $versionArg;
 }
