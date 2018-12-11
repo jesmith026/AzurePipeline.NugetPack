@@ -32,12 +32,20 @@
             "helpMarkDown": "Path to the desired output directory"
         },
         {
-            "name": "version",
+            "name": "majorVersion",
             "type": "string",
-            "label": "Version",
+            "label": "Major Version",
             "defaultValue": "",
             "required": true,
-            "helpMarkDown": "Version for the nuget package"
+            "helpMarkDown": "Major version for the nuget package"
+        },
+        {
+            "name": "minorVersion",
+            "type": "string",
+            "label": "Minor Version",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Minor version for the nuget package"
         }        
     ],
     "execution": {
