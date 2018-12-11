@@ -15,7 +15,7 @@ if (-Not [string]::IsNullOrEmpty($outputDir)) {
 
 if (-Not [string]::IsNullOrEmpty($version)) {
     if ($Env:BUILD_SOURCEBRANCHNAME -ne 'Dev') {
-        $versionArg = "-p:PackageVersion=$($Env:BUILD_BUILDNUMBER)";
+        $versionArg = "-p:PackageVersion=$($Env:BUILD_BUILDNUMBER)-alpha";
     }
     else {
         $versionArg = "-p:PackageVersion=$version";
