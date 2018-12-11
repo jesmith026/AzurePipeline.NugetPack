@@ -11,7 +11,7 @@ function getNewPatchVersion() {
 
     $output = nuget list $projectName.BaseName -ConfigFile .\NuGet.Config;
 
-    Write-Output $([convert]::ToInt32($output.split('.')[-1])+1);
+    $([convert]::ToInt32($output.split('.')[-1])+1);
 }
 
 $args = @();
@@ -22,16 +22,15 @@ if (-Not [string]::IsNullOrEmpty($outputDir)) {
     $args += "-o $outputDir";
 }
 
-if (-Not [string]::IsNullOrEmpty($version)) {
-    if ($Env:BUILD_SOURCEBRANCHNAME -ne 'Dev') {
-        $versionArg = "-p:PackageVersion=$($Env:BUILD_BUILDNUMBER)-alpha";
-    }
-    else {
-        $patch = getNewPatchVersion;
-        $versionArg = "-p:PackageVersion=$majorVersion.$minorVersion.$patch";
-    }    
-
-    $args += $versionArg;
+if ($Env:BUILD_SOURCEBRANCHNAME -ne 'Dev') {
+    $versionArg = "-p:PackageVersion=$($Env:BUILD_BUILDNUMBER)-alpha";
 }
+else {
+    $patch = getNewPatchVersion;
+    $versionArg = "-p:PackageVersion=$majorVersion.$minorVersion.$patch";
+}    
+
+$args += $versionArg;
+
 
 Invoke-Expression "dotnet pack $args";
