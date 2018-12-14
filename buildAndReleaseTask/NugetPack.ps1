@@ -7,14 +7,9 @@ $majorVersion = Get-VstsInput -Name 'majorVersion' -Require
 $minorVersion = Get-VstsInput -Name 'minorVersion' -Require
 
 function getNewPatchVersion() {
-    $projectName = Get-ChildItem $project
+    $projectName = Get-ChildItem $project;
 
-    if ([System.IO.File]::Exists("C:\hostedtoolcache\windows\NuGet\4.1.0\x64\nuget.exe")) {
-        $output = C:\hostedtoolcache\windows\NuGet\4.1.0\x64\nuget.exe list $projectName.BaseName -ConfigFile .\NuGet.Config;
-    }
-    else {
-        $output = nuget.exe list $projectName.BaseName -ConfigFile .\NuGet.Config;
-    }
+    $output = nuget.exe list $projectName.BaseName -ConfigFile "$env:SYSTEM_DEFAULTWORKINGDIRECTORY\NuGet.Config";
 
     $patchStr = $output.split('.')[-1];
 
