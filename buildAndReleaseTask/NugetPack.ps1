@@ -10,6 +10,7 @@ function getNewPatchVersion() {
     $projectName = Get-ChildItem $project;
 
     $output = nuget.exe list $projectName.BaseName -ConfigFile "$env:SYSTEM_DEFAULTWORKINGDIRECTORY\NuGet.Config";
+        $output = nuget.exe list $projectName.BaseName -ConfigFile "$env:BUILD_SOURCESDIRECTORY\NuGet.Config";
 
     $patchStr = $output.split('.')[-1];
 
