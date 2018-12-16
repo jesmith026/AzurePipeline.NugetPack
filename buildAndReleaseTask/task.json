@@ -11,7 +11,7 @@
     "version": {
         "Major": 0,
         "Minor": 0,
-        "Patch": 16
+        "Patch": 28
     },
     "instanceNameFormat": "Dotnet Nuget Pack $(Project)",
     "inputs": [
@@ -50,7 +50,7 @@
     ],
     "execution": {
         "PowerShell3": {
-            "target": "$(currentDirectory)\\NugetPack.ps1",
+            "target": "$(currentDirectory)\\task.ps1",
             "workingDirectory": "$(currentDirectory)"
         }        
     }
