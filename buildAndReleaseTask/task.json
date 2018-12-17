@@ -9,9 +9,9 @@
     ],
     "author": "Socratic Programmer",
     "version": {
-        "Major": 0,
+        "Major": 1,
         "Minor": 0,
-        "Patch": 28
+        "Patch": 0
     },
     "instanceNameFormat": "Dotnet Nuget Pack $(Project)",
     "inputs": [

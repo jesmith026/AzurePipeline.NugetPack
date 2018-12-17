@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "Dotnet-Nuget-Build-Task",
     "name": "Dotnet Nuget",
-    "version": "0.0.28",
+    "version": "1.0.0",
     "publisher": "SocraticProgrammer",
     "targets": [
         {
