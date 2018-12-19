@@ -13,6 +13,9 @@
     "categories": [
         "Azure Pipelines"
     ],
+    "icons": {
+        "default": "images/SPLogo.jpg"
+    },
     "files": [
         {
             "path": "buildAndReleaseTask"
