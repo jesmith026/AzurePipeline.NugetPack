@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "Dotnet-Nuget-Build-Task",
     "name": "Dotnet Nuget",
-    "version": "1.0.0",
+    "version": "1.0.4",
     "publisher": "SocraticProgrammer",
     "targets": [
         {
@@ -13,6 +13,9 @@
     "categories": [
         "Azure Pipelines"
     ],
+    "icons": {
+        "default": "images/SPLogo.png"
+    },
     "files": [
         {
             "path": "buildAndReleaseTask"
