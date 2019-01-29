@@ -1,8 +1,13 @@
 function getNewPatchVersion() {
     Write-Host 'Getting new patch version';
     $projectFile = Get-ChildItem $project;
-    
-    $output = nuget.exe list $projectFile.BaseName;
+    $output = '';
+
+    nuget.exe list $projectFile.BaseName | %{ 
+        if($_.split()[0] -eq $projectFile.BaseName) {
+            $output = $_;
+        }
+    };
 
     $splitOutput = $output.split('.');
 
