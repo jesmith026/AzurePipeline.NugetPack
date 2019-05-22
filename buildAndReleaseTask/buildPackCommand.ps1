@@ -3,6 +3,7 @@ function getNewPatchVersion() {
     $projectFile = Get-ChildItem $project;
     $output = '';
 
+    nuget.exe locals all -clear;
     nuget.exe list $projectFile.BaseName | %{ 
         if($_.split()[0] -eq $projectFile.BaseName) {
             $output = $_;
