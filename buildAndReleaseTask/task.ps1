@@ -9,5 +9,4 @@ $majorVersion = Get-VstsInput -Name 'majorVersion' -Require
 $minorVersion = Get-VstsInput -Name 'minorVersion' -Require
 
 $command = . "$PSScriptRoot\buildPackCommand.ps1";
-
 Invoke-Expression $command;

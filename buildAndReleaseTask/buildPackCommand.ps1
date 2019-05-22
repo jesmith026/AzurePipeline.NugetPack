@@ -1,9 +1,12 @@
+function clearNugetCache() {
+    nuget.exe locals all -clear -Verbosity quiet;
+}
+
 function getNewPatchVersion() {
     Write-Host 'Getting new patch version';
     $projectFile = Get-ChildItem $project;
     $output = '';
-
-    nuget.exe locals all -clear;
+    
     nuget.exe list $projectFile.BaseName | %{ 
         if($_.split()[0] -eq $projectFile.BaseName) {
             $output = $_;
@@ -102,5 +105,5 @@ function finalConstruction([parameter(ValueFromPipeline)]$args) {
     $command;
 }
 
+clearNugetCache;
 "" | addProjectArg | tryAddOutputArg | addVersioningArgs | addConfigurationArg | finalConstruction;
-
